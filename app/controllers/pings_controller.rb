@@ -4,6 +4,7 @@ class PingsController < ApplicationController
   # GET /pings
   # GET /pings.json
   def index
+    HardWorker.perform_async('bob')
     # @pings = Ping.all
   end
 
