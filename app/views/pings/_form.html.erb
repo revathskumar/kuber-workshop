@@ -1,0 +1,17 @@
+<%= form_with(model: ping, local: true) do |form| %>
+  <% if ping.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ping.errors.count, "error") %> prohibited this ping from being saved:</h2>
+
+      <ul>
+      <% ping.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
