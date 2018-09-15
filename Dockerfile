@@ -1,4 +1,4 @@
-FROM ruby:2.5.1
+FROM ruby:2.4.1
 
 COPY . /src
 WORKDIR /src
