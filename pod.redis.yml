@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: kuber-workshop-redis
+  labels:
+    app: rails-kuber-workshop
+spec:
+  containers:
+    - name: kuber-workshop-redis
+      image: redis:latest
+      ports:
+        - containerPort: 6379

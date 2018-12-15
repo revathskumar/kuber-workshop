@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: kuber-workshop-sidekiq-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rails-kuber-workshop-sidekiq
+  template:
+    metadata:
+      labels:
+        app: rails-kuber-workshop-sidekiq
+    spec:
+      containers:
+        - name: kuber-workshop-sidekiq-container
+          image: revathskumar/kuber-workshop
+          command: ["bundle", "exec", "sidekiq"]
+          env:
+            - name: REDIS_URL
+              value: redis://kuber-workshop-redis:6379

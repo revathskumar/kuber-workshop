@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: kuber-workshop-redis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rails-kuber-workshop-redis
+  template:
+    metadata:
+      labels:
+        app: rails-kuber-workshop-redis
+    spec:
+      containers:
+        - name: kuber-workshop-redis-container
+          image: redis:latest
+          ports:
+            - containerPort: 6379

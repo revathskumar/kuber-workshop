@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: kuber-workshop-sidekiq
+  labels:
+    app: rails-kuber-workshop
+spec:
+  containers:
+    - name: kuber-workshop-sidekiq
+      image: revathskumar/kuber-workshop
+      command: bundle exec sidekiq -L log/sidekiq.log
+      env:
+        - name: REDIS_URL
+          value: redis://kuber-workshop-redis:6739
